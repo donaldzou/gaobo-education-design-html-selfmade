@@ -75,8 +75,18 @@ $(".custom_selection a").click(function(){
     $(this).addClass("active");
 });
 
-
+var type1 = '<a href="#" class="list-group-item list-group-item-action">语文</a><a href="#" class="list-group-item list-group-item-action">数学</a><a href="#" class="list-group-item list-group-item-action">英语</a><a href="#" class="list-group-item list-group-item-action">物理</a><a href="#" class="list-group-item list-group-item-action">化学</a><a href="#" class="list-group-item list-group-item-action disabled">生物</a>';
+var type2 = '<a href="#" class="list-group-item list-group-item-action">听力</a><a href="#" class="list-group-item list-group-item-action">阅读</a><a href="#" class="list-group-item list-group-item-action">口语</a><a href="#" class="list-group-item list-group-item-action">写作</a>';
+var cars = ["Saab", "Volvo", "BMW"];
 $("#program_select").change(function(){
     var course = $(this).val();
     $(".class_selection h2").text("请选择您学习的"+course+"科目");
-})
+
+    if ($(this).val() == "IGCSE" || $(this).val() == "DP"|| $(this).val() == "MYP" || $(this).val() == "A-Level"|| $(this).val() == "AP"|| $(this).val() == "IFD" ){
+        $(".class_list").html(type1);
+    }
+    else{
+        $(".class_list").html(type2);
+    }
+    
+});
