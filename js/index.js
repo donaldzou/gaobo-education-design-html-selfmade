@@ -77,13 +77,23 @@ $(".custom_selection a").click(function(){
 
 var type1 = '<a href="#" class="list-group-item list-group-item-action">语文</a><a href="#" class="list-group-item list-group-item-action">数学</a><a href="#" class="list-group-item list-group-item-action">英语</a><a href="#" class="list-group-item list-group-item-action">物理</a><a href="#" class="list-group-item list-group-item-action">化学</a><a href="#" class="list-group-item list-group-item-action disabled">生物</a>';
 var type2 = '<a href="#" class="list-group-item list-group-item-action">听力</a><a href="#" class="list-group-item list-group-item-action">阅读</a><a href="#" class="list-group-item list-group-item-action">口语</a><a href="#" class="list-group-item list-group-item-action">写作</a>';
-var cars = ["Saab", "Volvo", "BMW"];
+var type1_1 = ["语文", "数学", "英语", "化学",];
+var type2_2 = ["听力", "阅读", "写作", "口语",];
+var type_num;
+var cars_length = cars.length;
+
+
 $("#program_select").change(function(){
     var course = $(this).val();
     $(".class_selection h2").text("请选择您学习的"+course+"科目");
+    
+
 
     if ($(this).val() == "IGCSE" || $(this).val() == "DP"|| $(this).val() == "MYP" || $(this).val() == "A-Level"|| $(this).val() == "AP"|| $(this).val() == "IFD" ){
         $(".class_list").html(type1);
+        for (car = 0; type_num<cars_length; car++){
+            alert(type1_1[]);
+        }
     }
     else{
         $(".class_list").html(type2);
