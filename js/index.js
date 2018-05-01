@@ -78,23 +78,31 @@ $(".custom_selection a").click(function(){
 var type1_1 = ["语文", "数学", "英语", "物理","化学","生物",];
 var type2_2 = ["听力", "阅读", "写作", "口语",];
 var type_num;
+var current_html;
+var new_html;
 
 
 $("#program_select").change(function(){
     var course = $(this).val();
     $(".class_selection h2").text("请选择您学习的"+course+"科目");
+    $(".class_list").html("");
     
 
 
     if ($(this).val() == "IGCSE" || $(this).val() == "DP"|| $(this).val() == "MYP" || $(this).val() == "A-Level"|| $(this).val() == "AP"|| $(this).val() == "IFD" ){
+        
         for (type_num = 0; type_num<type1_1.length; type_num++){
-            var current_html = $(".class_list").html();
-            var new_html = current_html + '<a href="#" class="list-group-item list-group-item-action">'+type1_1[type_num]+'</a>';
+            current_html = $(".class_list").html();
+            new_html = current_html + '<a href="#" class="list-group-item list-group-item-action">'+type1_1[type_num]+'</a>';
             $(".class_list").html(new_html);
         }
     }
     else{
-        $(".class_list").html(type2);
+        for (type_num = 0; type_num<type2_2.length; type_num++){
+            current_html = $(".class_list").html();
+            new_html = current_html + '<a href="#" class="list-group-item list-group-item-action">'+type2_2[type_num]+'</a>';
+            $(".class_list").html(new_html);
+        }
     }
     
 });
