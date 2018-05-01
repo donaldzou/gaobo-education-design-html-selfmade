@@ -75,12 +75,9 @@ $(".custom_selection a").click(function(){
     $(this).addClass("active");
 });
 
-var type1 = '<a href="#" class="list-group-item list-group-item-action">语文</a><a href="#" class="list-group-item list-group-item-action">数学</a><a href="#" class="list-group-item list-group-item-action">英语</a><a href="#" class="list-group-item list-group-item-action">物理</a><a href="#" class="list-group-item list-group-item-action">化学</a><a href="#" class="list-group-item list-group-item-action disabled">生物</a>';
-var type2 = '<a href="#" class="list-group-item list-group-item-action">听力</a><a href="#" class="list-group-item list-group-item-action">阅读</a><a href="#" class="list-group-item list-group-item-action">口语</a><a href="#" class="list-group-item list-group-item-action">写作</a>';
-var type1_1 = ["语文", "数学", "英语", "化学",];
+var type1_1 = ["语文", "数学", "英语", "物理","化学","生物",];
 var type2_2 = ["听力", "阅读", "写作", "口语",];
 var type_num;
-var cars_length = cars.length;
 
 
 $("#program_select").change(function(){
@@ -90,9 +87,10 @@ $("#program_select").change(function(){
 
 
     if ($(this).val() == "IGCSE" || $(this).val() == "DP"|| $(this).val() == "MYP" || $(this).val() == "A-Level"|| $(this).val() == "AP"|| $(this).val() == "IFD" ){
-        $(".class_list").html(type1);
-        for (car = 0; type_num<cars_length; car++){
-            alert(type1_1[]);
+        for (type_num = 0; type_num<type1_1.length; type_num++){
+            var current_html = $(".class_list").html();
+            var new_html = current_html + '<a href="#" class="list-group-item list-group-item-action">'+type1_1[type_num]+'</a>';
+            $(".class_list").html(new_html);
         }
     }
     else{
@@ -100,3 +98,7 @@ $("#program_select").change(function(){
     }
     
 });
+
+
+
+"Psychology-SL","Spanish-SL","Biology-HL","Biology-SL","BM-HL","BM-SL","Chemistry-HL","Chemistry-SL","Chinese A-SL","Chinese B-SL","Computer Science-HLComputer Science-SLEconomics-HLEconomics-SLEnglish A-SLEnglish-B-SLGeography-HLGeography-SLHistory-HLHistory-SLMathematics-HLMathematics-SLFurther MathematicsPhysics-HLPhysics-SLVisual Arts-HLVisual Arts-SLTheory of KnowledgeExtended EssaysInternal AssessmentEE+TOKChinese A-HLEnglish B-HLKorean A1  HL&SLChinese B-HLThetres-SL"
