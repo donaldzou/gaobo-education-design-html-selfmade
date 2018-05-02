@@ -77,6 +77,7 @@ $(".custom_selection a").click(function(){
 
 var type1_1 = ["语文", "数学", "英语", "物理","化学","生物",];
 var type2_2 = ["听力", "阅读", "写作", "口语",];
+var DP =["Psychology-SL","Spanish-SL","Biology-HL","Biology-SL","BM-HL","BM-SL","Chemistry-HL","Chemistry-SL","Chinese A-SL","Chinese B-SL","Computer Science-HL","Computer Science-SL","Economics-HL","Economics-SL","English A-SL","English-B-SL","Geography-HL","Geography-SL","History-HL","History-SL","Mathematics-HL","Mathematics-SL","Further Mathematics","Physics-HL","Physics-SL","Visual Arts-HL","Visual Arts-SL","Theory of Knowledge","Extended Essays","Internal Assessment","EE+TOK","Chinese A-HL","English B-HL","Korean A1  HL&SL","Chinese B-HL","Thetres-SL"]; 
 var type_num;
 var current_html;
 var new_html;
@@ -91,9 +92,9 @@ $("#program_select").change(function(){
 
     if ($(this).val() == "IGCSE" || $(this).val() == "DP"|| $(this).val() == "MYP" || $(this).val() == "A-Level"|| $(this).val() == "AP"|| $(this).val() == "IFD" ){
         
-        for (type_num = 0; type_num<type1_1.length; type_num++){
+        for (type_num = 0; type_num<DP.length; type_num++){
             current_html = $(".class_list").html();
-            new_html = current_html + '<a href="#" class="list-group-item list-group-item-action">'+type1_1[type_num]+'</a>';
+            new_html = current_html + '<a href="#" class="list-group-item list-group-item-action">'+DP[type_num]+'</a>';
             $(".class_list").html(new_html);
         }
     }
@@ -109,4 +110,4 @@ $("#program_select").change(function(){
 
 
 
-"Psychology-SL","Spanish-SL","Biology-HL","Biology-SL","BM-HL","BM-SL","Chemistry-HL","Chemistry-SL","Chinese A-SL","Chinese B-SL","Computer Science-HLComputer Science-SLEconomics-HLEconomics-SLEnglish A-SLEnglish-B-SLGeography-HLGeography-SLHistory-HLHistory-SLMathematics-HLMathematics-SLFurther MathematicsPhysics-HLPhysics-SLVisual Arts-HLVisual Arts-SLTheory of KnowledgeExtended EssaysInternal AssessmentEE+TOKChinese A-HLEnglish B-HLKorean A1  HL&SLChinese B-HLThetres-SL"
+"Psychology-SL","Spanish-SL","Biology-HL","Biology-SL","BM-HL","BM-SL","Chemistry-HL","Chemistry-SL","Chinese A-SL","Chinese B-SL","Computer Science-HL","Computer Science-SL","Economics-HL","Economics-SL","English A-SL","English-B-SL","Geography-HL","Geography-SL","History-HL","History-SL","Mathematics-HL","Mathematics-SL","Further Mathematics","Physics-HL","Physics-SL","Visual Arts-HL","Visual Arts-SL","Theory of Knowledge","Extended Essays","Internal Assessment","EE+TOK","Chinese A-HL","English B-HL","Korean A1  HL&SL","Chinese B-HL","Thetres-SL"
