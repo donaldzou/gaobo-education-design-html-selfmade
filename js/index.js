@@ -15,9 +15,8 @@ function menucollapse() {
     }
 
     if ($(window).width() >= 992) {
-        menu.removeClass("material_shadow");
         if (menu.offset().top >= main_1_nav_offset) {
-            
+            menu.removeClass("material_shadow");
             $("#main_1_nav").css("position", "fixed");
             $("#main_1_nav").css("top", $(".navbar.navbar-expand-lg.navbar-light.navbar-right.fixed-top").height() + 30);
             $("#main_1_nav").css("z-index", "1000");
@@ -83,6 +82,9 @@ $("#program_select").change(function () {
         $(".list-group-item").click(function(){//Show Teacher List using database
             $(".teacher_selection").removeClass("blur");
             $(".teacher_list_main").html(""); 
+            $(".class_selection .active").removeClass("active");
+            $(this).addClass("active");
+            
             var selected_course = program+"_"+$(this).text();
             console.log(selected_course);
             var teacher_list = fuse.search(selected_course);
@@ -93,13 +95,13 @@ $("#program_select").change(function () {
                 next_row++;
                 if (next_row > 3){
                     current_html = $(".teacher_list_main").html();
-                    new_html = current_html + ' <div class="w-100"></div><div class="col-sm"><div class="card"><div class="card-body"><img class="card-img-top" src="pic/man1.png" alt="Card image cap"><h5 class="card-title">'+teacher_list[teacher_l].name+'</h5><p class="card-text">'+teacher_list[teacher_l].slogan+'</p></div></div>';
+                    new_html = current_html + ' <div class="w-100"></div><div class="col-sm"><div class="card material_shadow"><div class="card-body"><img class="card-img-top" src="pic/man1.png" alt="Card image cap"><h5 class="card-title">'+teacher_list[teacher_l].name+'</h5><p class="card-text">'+teacher_list[teacher_l].slogan+'</p></div></div>';
                     $(".teacher_list_main").html(new_html);
                     next_row = 1;
                 }
                 else{
                     current_html = $(".teacher_list_main").html();
-                    new_html = current_html + '<div class="col-sm"><div class="card"><div class="card-body"><img class="card-img-top" src="pic/man1.png" alt="Card image cap"><h5 class="card-title">'+teacher_list[teacher_l].name+'</h5><p class="card-text">'+teacher_list[teacher_l].slogan+'</p></div></div>';
+                    new_html = current_html + '<div class="col-sm"><div class="card material_shadow"><div class="card-body "><img class="card-img-top" src="pic/man1.png" alt="Card image cap"><h5 class="card-title">'+teacher_list[teacher_l].name+'</h5><p class="card-text">'+teacher_list[teacher_l].slogan+'</p></div></div>';
                     $(".teacher_list_main").html(new_html);  
                 }
             }
