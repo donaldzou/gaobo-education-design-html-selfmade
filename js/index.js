@@ -1,64 +1,37 @@
-var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
 
-if ($(window).width() >= 992) {
-    $(".navbar-search").click(function () {
-        if ($(".navbar-search").main_2sClass("opened")) { console.log("opened"); }
-        else { $(".navbar-search").addClass("opened"); var width = $(".navbar-nav").width(); $(".navbar-nav").hide(); $(".navbar-search").css("width", width); $(".navbar-search").show(); $(".search-cancel").show(); $("#submit-search").show(); }
-    });
-
-    $(".search-cancel").click(function () {
-        $(".navbar-search").removeClass("opened");
-        $(".navbar-search").css("width", "");
-        $(".search-cancel").hide();
-        $("#submit-search").hide();
-        $(".navbar-nav").fadeIn();
-    });
-
-}
-
-if($(window).width() <=992){
-    $("#main_1_nav").hide();
-}
-
-
-
-//test
-
+//副菜单置顶
 var main_1_nav = $("#main_1_nav");
 var main_1_nav_offset = main_1_nav.offset().top;
 var menu = $(".navbar.navbar-expand-lg.navbar-light.navbar-right.fixed-top");
-var height = main_1_nav.height() + menu.height() +30;
-
-
-
-
+var height = main_1_nav.height() + menu.height() + 30;
 
 function menucollapse() {
-    
+
     if (menu.offset().top > 30) {
         menu.addClass("material_shadow");
     }
     else {
-        menu.removeClass("material_shadow")
+        menu.removeClass("material_shadow");
     }
 
-    if($(window).width() >= 992){
+    if ($(window).width() >= 992) {
+        menu.removeClass("material_shadow");
         if (menu.offset().top >= main_1_nav_offset) {
+            
             $("#main_1_nav").css("position", "fixed");
             $("#main_1_nav").css("top", $(".navbar.navbar-expand-lg.navbar-light.navbar-right.fixed-top").height() + 30);
-            $("#main_1_nav").css("z-index", "2000");
+            $("#main_1_nav").css("z-index", "1000");
             $("#main_1_nav").css("width", "100%");
-            $(".main_2").css("top", $("#main_1_nav").height()+60);
-        } 
+            $(".main_2").css("top", $("#main_1_nav").height() + 60);
+        }
         else {
             $("#main_1_nav").css("position", "");
             $("#main_1_nav").css("top", "");
             $(".main_2").css("top", "");
-    
         }
     }
-    
-    
+
+
 }
 
 
@@ -71,43 +44,90 @@ $(document).ready(function () {
     console.log(height);
 });
 
-$(".custom_selection a").click(function(){
+$(".custom_selection a").click(function () {
     $(this).addClass("active");
 });
 
-var type1_1 = ["语文", "数学", "英语", "物理","化学","生物",];
-var type2_2 = ["听力", "阅读", "写作", "口语",];
-var DP =["Psychology-SL","Spanish-SL","Biology-HL","Biology-SL","BM-HL","BM-SL","Chemistry-HL","Chemistry-SL","Chinese A-SL","Chinese B-SL","Computer Science-HL","Computer Science-SL","Economics-HL","Economics-SL","English A-SL","English-B-SL","Geography-HL","Geography-SL","History-HL","History-SL","Mathematics-HL","Mathematics-SL","Further Mathematics","Physics-HL","Physics-SL","Visual Arts-HL","Visual Arts-SL","Theory of Knowledge","Extended Essays","Internal Assessment","EE+TOK","Chinese A-HL","English B-HL","Korean A1  HL&SL","Chinese B-HL","Thetres-SL"]; 
-var type_num;
-var current_html;
-var new_html;
 
 
-$("#program_select").change(function(){
-    var course = $(this).val();
-    $(".class_selection h2").text("请选择您学习的"+course+"科目");
-    $(".class_list").html("");
-    
+//选择项目显示课程
 
+var type_num, current_html, new_html, program, current_list; //Declare
 
-    if ($(this).val() == "IGCSE" || $(this).val() == "DP"|| $(this).val() == "MYP" || $(this).val() == "A-Level"|| $(this).val() == "AP"|| $(this).val() == "IFD" ){
-        
-        for (type_num = 0; type_num<DP.length; type_num++){
-            current_html = $(".class_list").html();
-            new_html = current_html + '<a href="#" class="list-group-item list-group-item-action">'+DP[type_num]+'</a>';
-            $(".class_list").html(new_html);
-        }
+$("#program_select").change(function () {
+    $(".class_list").html("");//Clear Course list for every changes
+    $(".teacher_selection").addClass("blur");
+    $(".teacher_list_main").html("");//Clear teacher list for every changes 
+
+    $(".class_selection .text-muted").addClass("display_none");
+    program = $(this).val();
+    if(program == "0"){
+        $(".class_selection .text-muted").removeClass("display_none");
+        $(".class_selection h2").text("请选择您学习的科目");
+        $(".class_selection").addClass("blur");
     }
     else{
-        for (type_num = 0; type_num<type2_2.length; type_num++){
+        $(".class_selection").removeClass("blur");
+        $(".class_selection h2").text("请选择您学习的" + program + "科目");   
+        current_list = JSON.parse($("."+program+"").text());
+        console.log(current_list);
+    
+        for (type_num = 0; type_num<current_list.length; type_num++){
             current_html = $(".class_list").html();
-            new_html = current_html + '<a href="#" class="list-group-item list-group-item-action">'+type2_2[type_num]+'</a>';
+            new_html = current_html + '<a href="#" class="list-group-item list-group-item-action material_shadow">'+current_list[type_num]+'</a>';
             $(".class_list").html(new_html);
         }
+
+
+
+        $(".list-group-item").click(function(){//Show Teacher List using database
+            $(".teacher_selection").removeClass("blur");
+            $(".teacher_list_main").html(""); 
+            var selected_course = program+"_"+$(this).text();
+            console.log(selected_course);
+            var teacher_list = fuse.search(selected_course);
+            console.log(teacher_list);
+            var next_row = 0;
+
+            for (var teacher_l = 0; teacher_l<teacher_list.length; teacher_l++){
+                next_row++;
+                if (next_row > 3){
+                    current_html = $(".teacher_list_main").html();
+                    new_html = current_html + ' <div class="w-100"></div><div class="col-sm"><div class="card"><div class="card-body"><img class="card-img-top" src="pic/man1.png" alt="Card image cap"><h5 class="card-title">'+teacher_list[teacher_l].name+'</h5><p class="card-text">'+teacher_list[teacher_l].slogan+'</p></div></div>';
+                    $(".teacher_list_main").html(new_html);
+                    next_row = 1;
+                }
+                else{
+                    current_html = $(".teacher_list_main").html();
+                    new_html = current_html + '<div class="col-sm"><div class="card"><div class="card-body"><img class="card-img-top" src="pic/man1.png" alt="Card image cap"><h5 class="card-title">'+teacher_list[teacher_l].name+'</h5><p class="card-text">'+teacher_list[teacher_l].slogan+'</p></div></div>';
+                    $(".teacher_list_main").html(new_html);  
+                }
+            }
+
+            $('html, body').animate({
+                scrollTop: $(".teacher_list_main").offset().top+height
+              }, 800);
+        });
+
+
     }
-    
 });
 
 
 
-"Psychology-SL","Spanish-SL","Biology-HL","Biology-SL","BM-HL","BM-SL","Chemistry-HL","Chemistry-SL","Chinese A-SL","Chinese B-SL","Computer Science-HL","Computer Science-SL","Economics-HL","Economics-SL","English A-SL","English-B-SL","Geography-HL","Geography-SL","History-HL","History-SL","Mathematics-HL","Mathematics-SL","Further Mathematics","Physics-HL","Physics-SL","Visual Arts-HL","Visual Arts-SL","Theory of Knowledge","Extended Essays","Internal Assessment","EE+TOK","Chinese A-HL","English B-HL","Korean A1  HL&SL","Chinese B-HL","Thetres-SL"
+
+
+
+
+
+// Create DB and fill it with records
+
+
+
+
+
+
+//选择课程显示老师
+
+
+

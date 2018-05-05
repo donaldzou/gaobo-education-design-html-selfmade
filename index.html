@@ -166,44 +166,117 @@
         </li>
     </ul>
     <div class="container main_2">
-        <div id="custom">
+        <h1>定制化提分方案</h1>
+        <div class="course_selection main_2_sections">
+            <h2>1. 选择您学习的项目</h2>
+            <select class="form-control" id="program_select">
+                <option value="0">点击选择项目</option>
+                <option value="DP">DP</option>
+                <option value="MYP">MYP</option>
+                <!-- <option value="A-Level">A-Level</option>
+                <option value="IGCSE">IGCSE</option>
+                <option value="AP">AP</option>
+                <option value="IFD">IFD</option>
+                <option value="托福">托福</option>
+                <option value="雅思">雅思</option>
+                <option value="SAT">SAT</option>
+                <option value="GRE">GRE</option>
+                <option value="GMAT">GMAT</option> -->
+            </select>
+        </div>
 
-            <div class="course_selection">
-                <h1>定制化提分方案</h1>
-                <h2>选择您学习的项目</h2>
-                <select class="form-control" id="program_select">
-                    <option value="0">点击选择项目</option>
-                    <option value="DP">DP</option>
-                    <option value="MYP">MYP</option>
-                    <option value="A-Level">A-Level</option>
-                    <option value="IGCSE">IGCSE</option>
-                    <option value="AP">AP</option>
-                    <option value="IFD">IFD</option>
-                    <option value="托福">托福</option>
-                    <option value="雅思">雅思</option>
-                    <option value="SAT">SAT</option>
-                    <option value="GRE">GRE</option>
-                    <option value="GMAT">GMAT</option>
-                </select>
-            </div>
-            <div class="class_selection">
-                <h2>选择您学习的科目</h2>
-                <div class="list-group class_list">
-                    
+        <div class="class_selection main_2_sections blur">
+            <h2>2. 选择您学习的科目</h2>
+            <h6 class="text-muted">请先选择科目，选择后课程将会显示</h6>
+            <div class="list-group class_list"></div>
+        </div>
+
+        <div class="teacher_selection main_2_sections blur">
+            <h2>3. 选择您喜欢的老师</h2>
+            <div class="row teacher_list_main">
+              </div>
+
+            <!-- <div class="row">
+                <div class="col-sm">
+                    <div class="card">
+                        <img class="card-img-top" src="pic/girl.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div class="col-sm">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="row">
+                    <div class="col-sm">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            
+
+        </div>
+
+
+
+    </div>
+    <!--课程列表-->
+    <div id="course_list">
+        <!-- <p class="DP">["Psychology-SL", "Spanish-SL", "Biology-HL", "Biology-SL", "BM-HL", "BM-SL", "Chemistry-HL", "Chemistry-SL", "ChineseA-SL", "ChineseB-SL", "Computer Science-HL", "Computer Science-SL", "Economics-HL", "Economics-SL", "EnglishA-SL", "English-B-SL", "Geography-HL", "Geography-SL", "History-HL", "History-SL", "Mathematics-HL", "Mathematics-SL","Further Mathematics", "Physics-HL", "Physics-SL", "Visual Arts-HL", "Visual Arts-SL", "Theory of Knowledge","Extended Essays", "Internal Assessment", "EE+TOK", "Chinese A-HL", "English B-HL", "Korean A1 HL&SL", "ChineseB-HL", "Thetres-SL"]</p> -->
+        <p class="DP">["Psychology-SL", "Spanish-SL","Chinese A-HL"]</p>
+        <p class="MYP">["Biology","Chemistry","English","Mathematics","Physics","Literature & Language","Geogrpahy","History"]</p>
+    </div>
 </body>
 
 <script src="js/jquery-3.3.1.min.js"></script>
-<script 
-src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.0.4/fuse.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/database.js"></script>
 <script src="js/index.js"></script>
 
-<script>
-
-
-</script>
+	
 
 </html>

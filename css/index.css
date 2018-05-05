@@ -128,6 +128,12 @@ body{
     }
 }
 
+@media (max-width:992px){
+    .main_1{
+        display: none;
+    }
+}
+
 .main_1 .nav-link{
     border-radius: 0;
     background-color: white;
@@ -147,8 +153,20 @@ body{
     color: #1565C0;
 }
 
+@media(max-width:992px){
+    .main_2 h1{
+        font-size: 2rem;
+        padding-top: 20px;
+        padding-bottom: 20px !important;
+    }
+}
+
 .main_2 h1, h2, h3{
     padding-bottom: 40px; 
+}
+.main_2_sections{
+    padding-bottom: 50px;
+    transition: ease-in-out 0.5s;
 }
 
 
@@ -167,6 +185,64 @@ body{
     }
 }
 
-.course_selection{
-    padding-bottom: 40px;
+
+
+.card-deck .card .card-body{
+    text-align: center;
+}
+
+.card-deck .card .card-body .card-title{
+    margin:0;
+}
+.card-deck .card{
+    cursor: pointer;
+}
+
+#course_list{
+    display: none;
+}
+
+.display_none{
+    display: none;
+}
+
+.class_selection .list-group-item{
+    border-radius: 3px !important;
+    border: none !important;
+    margin-bottom: 7px; 
+    transition: 0.2s ease-in-out;
+}
+
+.class_selection .list-group-item:hover{
+    color:white;
+    background-color:#1565C0;
+}
+
+.dropdown-menu{
+    z-index:2000;
+}
+
+
+@media (min-width: 576px){
+    .teacher_list_main .col-sm {
+    max-width: 33.333333333%;
+    padding-bottom: 30px;
+    }
+}
+
+.blur{
+    -webkit-filter: blur(5px);
+-moz-filter: blur(5px);
+-o-filter: blur(5px);
+-ms-filter: blur(5px);
+filter: blur(5px);
+}
+
+.teacher_list_main img{
+    width: 128px;
+    padding-bottom: 15px;
+}
+
+.teacher_list_main .card{
+    text-align: center;
 }
