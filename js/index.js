@@ -103,10 +103,17 @@ $("#program_select").change(function () {
                     $(".teacher_list_main").html(new_html);  
                 }
             }
-
-            $('html, body').animate({
-                scrollTop: $(".teacher_list_main").offset().top+height
-              }, 800);
+            if ($(window).width() >= 992){
+                $('html, body').animate({
+                    scrollTop: $(".teacher_list_main").offset().top+height
+                  }, 800);
+            }
+            else{
+                $('html, body').animate({
+                    scrollTop: $(".teacher_list_main").offset().top
+                  }, 800);
+            }
+            
         });
 
 
