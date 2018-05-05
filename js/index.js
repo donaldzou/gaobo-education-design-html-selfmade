@@ -110,7 +110,7 @@ $("#program_select").change(function () {
             }
             else{
                 $('html, body').animate({
-                    scrollTop: $(".teacher_list_main").offset().top
+                    scrollTop: $(".teacher_list_main").offset().top + height
                   }, 800);
             }
             
