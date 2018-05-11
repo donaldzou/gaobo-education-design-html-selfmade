@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="css/iconic/font/css/open-iconic-bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
         crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+  
 
     <!--custom-->
     <link rel="stylesheet" href="css/index.css">
@@ -202,14 +204,33 @@
         <div class="trial_selection main_2_sections">
             <h2>4. 选择您喜欢的试听课程</h2>
             <h6 class="text-muted">请先选择老师，选择后试听课程将会显示</h6>
-            <div class="row trial_list_main">
-                <!-- <div class="col-sm"><div class="card teacher-card material_shadow wow fadeInUp" data-wow-duration="0.5s"><img class="card-img-top" src="pic/trial.jpg" alt="Card image cap"><div class="card-body "><h5 class="card-title">donald</h5><p class="card-text">HELLOO</p></div> -->
-                    </div>
+            <div class="row trial_list_main"></div>
         </div>
 
-        <div class="request_course">
-            <button type="button" class="btn btn-primary request_course_button material_shadow">定制您的专属课程</button>
-        </div>
+        
+
+        <div class="jumbotron comfirm_course material_shadow">
+            <h2>确认您的课程</h2>
+            <p class="lead"></p>
+            <hr class="my-4">
+            <div class="request_course">
+                <button type="button" class="btn btn-primary request_course_button material_shadow">定制您的专属课程</button>
+            </div>
+          </div>
+          <div class="jumbotron">
+            <h1 class="display-4">Hello, world!</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+          </div>
+          <div class="jumbotron">
+            <h1 class="display-4">Hello, world!</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+          </div>
 
 
 
@@ -218,6 +239,25 @@
     <div id="course_list">
         <p class="DP">["Psychology-SL", "Spanish-SL", "Biology-HL", "Biology-SL", "BM-HL", "BM-SL", "Chemistry-HL", "Chemistry-SL", "ChineseA-SL", "ChineseB-SL", "Computer Science-HL", "Computer Science-SL", "Economics-HL", "Economics-SL", "EnglishA-SL", "English-B-SL", "Geography-HL", "Geography-SL", "History-HL", "History-SL", "Mathematics-HL", "Mathematics-SL","Further Mathematics", "Physics-HL", "Physics-SL", "Visual Arts-HL", "Visual Arts-SL", "Theory of Knowledge","Extended Essays", "Internal Assessment", "EE+TOK", "Chinese A-HL", "English B-HL", "Korean A1 HL&SL", "ChineseB-HL", "Thetres-SL"]</p>
         <p class="MYP">["Biology","Chemistry","English","Mathematics","Physics","Literature & Language","Geogrpahy","History"]</p>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="trial_info_popup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="trial_info_popup_title"></h5>
+                </div>
+                <div class="modal-body">
+                    <p id="trial_info_popup_teacher"></p>
+                    <p id="trial_info_popup_description"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
