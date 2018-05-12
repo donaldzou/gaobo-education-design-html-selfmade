@@ -363,6 +363,10 @@ filter: blur(5px);
     border-bottom: 4px solid #1565C0;
 }
 
+.trial_selection .card-body{
+    background-color: white;
+}
+
 .comfirm_course{
     display: none;
     background-color: white;
@@ -408,6 +412,14 @@ filter: blur(5px);
 
 .info{
     transition:0.5s cubic-bezier(0.68, 0.02, 0.03, 1);
+}
 
+.info_des{
+    padding: 45px 20px;
+    text-align: left;
+}
+
+.trial_info{
+    transition:0.5s cubic-bezier(0.68, 0.02, 0.03, 1);
 }
 

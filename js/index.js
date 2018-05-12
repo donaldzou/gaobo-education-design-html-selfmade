@@ -142,12 +142,12 @@ $("#program_select").change(function () {
                         next_row++;
                         if (next_row > 3){
                             current_html = $(".trial_list_main").html();
-                            new_html = current_html + '<div class="w-100"></div><div class="col-sm"><i class="material-icons trial_info">menu</i><div class="card trial-card material_shadow wow fadeInUp" data-wow-duration="0.5s" value="'+n+'"><div class="info"><p class="info_des"></p></div><img class="card-img-top" src="pic/trial.jpg" alt="Card image cap"><div class="card-body "><h5 class="card-title">'+trial_list_name[n].title+'</h5><p class="card-text">'+trial_list.name+'    |    '+trial_list_name[n].time+'</p></div>'
+                            new_html = current_html + '<div class="w-100"></div><div class="col-sm"><i class="material-icons trial_info wow fadeInUp">menu</i><div class="card trial-card material_shadow wow fadeInUp" data-wow-duration="0.5s" value="'+n+'"><div class="info"><p class="info_des"></p></div><img class="card-img-top" src="pic/trial.jpg" alt="Card image cap"><div class="card-body"><h5 class="card-title">'+trial_list_name[n].title+'</h5><p class="card-text">'+trial_list.name+'    |    '+trial_list_name[n].time+'</p></div>'
                             $(".trial_list_main").html(new_html);
                         }
                         else{
                             current_html = $(".trial_list_main").html();
-                            new_html = current_html + '<div class="col-sm"><i class="material-icons trial_info">menu</i><div class="card trial-card material_shadow wow fadeInUp" data-wow-duration="0.5s" value="'+n+'"><div class="info"><p class="info_des"></p></div><img class="card-img-top" src="pic/trial.jpg" alt="Card image cap"><div class="card-body "><h5 class="card-title">'+trial_list_name[n].title+'</h5><p class="card-text">'+trial_list.name+'    |    '+trial_list_name[n].time+'</p></div>'
+                            new_html = current_html + '<div class="col-sm"><i class="material-icons trial_info wow fadeInUp">menu</i><div class="card trial-card material_shadow wow fadeInUp" data-wow-duration="0.5s" value="'+n+'"><div class="info"><p class="info_des"></p></div><img class="card-img-top" src="pic/trial.jpg" alt="Card image cap"><div class="card-body "><h5 class="card-title">'+trial_list_name[n].title+'</h5><p class="card-text">'+trial_list.name+'    |    '+trial_list_name[n].time+'</p></div>'
                             $(".trial_list_main").html(new_html);
                         }
                 }
@@ -173,35 +173,48 @@ $("#program_select").change(function () {
                     $(".comfirm_course .lead").text("您选择了"+program+"项目的"+$(".list-group-item.active").text()+"课程，并且选择了"+$(".teacher-card.active .teacher-name").text()+"的"+$(".trial-card.active .card-title").text()+"试听课");
                 });
 
-                $(".trial_info").click(function(){
+                $(".trial_info").click(function () {
+                        var child = $(".info_des");
+                        var sub_child = $(".info");
+                        var open = $(".info.opened_trial_info");
+                        var k = $(this).next().attr("value")
+                        var modal_title = trial_list_name[k].title;
+                        var modal_title_teacher = trial_list.name;
+                        var modal_title_time = trial_list_name[k].time;
+                        $(this).parent().find(child).text(trial_list_name[k].description);
+                        var height_info = $(this).parent().find(child).height();
+                        var sub_height = $(this).parent().find(sub_child);
+                        height_info_a = height_info +70+ "px";
+                        
 
-                    $(".info.opened_trial_info").removeClass("opened_trial_info");
-                    $(".info.opened_trial_info").css("height", "0px");
-                    
-                    var child = $(".info_des");
-                    var sub_child = $(".info");
-                    var open = $(".info.opened_trial_info");
-                    console.log($(this).parent().find(child).text("老师："+modal_title_teacher+"    |    长度："+modal_title_time));
+
+                        if($(this).parent().find($(".info.opened_trial_info")).length == 1){
+                            $(this).parent().find($(".info.opened_trial_info")).css("height", "0px");
+                            $(this).parent().find($(".info.opened_trial_info")).removeClass("opened_trial_info");
+                            $(this).text("menu");
+                            $(this).css("color", "#ffffff");
+                        }
+                        else{
+                            sub_height.css("height", height_info_a);
+                            sub_height.addClass("opened_trial_info");
+                            
+                            $(this).text("close");
+                            $(this).css("color", "#1565C0")
+
+                        }
 
                     
-                    var k = $(this).next().attr("value")
-                    var modal_title = trial_list_name[k].title;
-                    var modal_title_teacher = trial_list.name;
-                    var modal_title_time = trial_list_name[k].time;
-                    $(this).parent().find(child).text("老师："+modal_title_teacher+"    |    长度："+modal_title_time);
-                    var height_info = $(this).parent().find(child).height();
-                    var sub_height = $(this).parent().find(sub_child);
-                    height_info_a = height_info+"px";
                     
-
-                    if ($(this).parent().find(open).length == 1){
-                        $(".info.opened_trial_info").css("height", "0px");
-                        $(".info.opened_trial_info").removeClass("opened_trial_info");
-                    }
-                    else{
-                        sub_height.css("height", height_info_a);
-                        sub_height.addClass("opened_trial_info");
-                    }
+                    //     if ($(".info.opened_trial_info").length == 1) {
+                    //         $(".info.opened_trial_info").css("height", "0px");
+                    //         $(".info.opened_trial_info").removeClass("opened_trial_info");
+                    //     }
+                    //     else {
+                    //         sub_height.css("height", height_info_a);
+                    //         sub_height.addClass("opened_trial_info");
+                    //         $(".info.opened_trial_info").css("height", "0px");
+                    //         $(".info.opened_trial_info").removeClass("opened_trial_info");
+                    // }
 
                 })
 
