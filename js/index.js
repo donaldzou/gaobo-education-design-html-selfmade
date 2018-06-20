@@ -185,6 +185,7 @@ $("#program_select").change(function () {
                         var height_info = $(this).parent().find(child).height();
                         var sub_height = $(this).parent().find(sub_child);
                         height_info_a = height_info +70+ "px";
+                        var child = $(this).parent().find(child);
                         
 
 
@@ -193,13 +194,16 @@ $("#program_select").change(function () {
                             $(this).parent().find($(".info.opened_trial_info")).removeClass("opened_trial_info");
                             $(this).text("menu");
                             $(this).css("color", "#ffffff");
+                            $(this).parent().find(child).fadeOut(200);
                         }
                         else{
                             sub_height.css("height", height_info_a);
                             sub_height.addClass("opened_trial_info");
                             
                             $(this).text("close");
-                            $(this).css("color", "#1565C0")
+                            $(this).css("color", "#1565C0");
+
+                            $(this).parent().find(child).show();
 
                         }
 
